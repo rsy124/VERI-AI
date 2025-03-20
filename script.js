@@ -8,11 +8,19 @@ function checkData() {
 
   showLoading();
 
+  // Simulating a fact-checking process (3-second wait)
   setTimeout(() => {
     hideLoading();
-    document.getElementById("result").innerHTML = `<strong>Result:</strong> Fact check completed! ✅`;
+    
+    // Simulate Fact-Checking Result (Random True or False)
+    const isTrue = Math.random() > 0.5;
+    const resultText = isTrue 
+      ? `<strong>Result:</strong> ✅ This statement is likely TRUE.` 
+      : `<strong>Result:</strong> ❌ This statement is likely FALSE.`;
+
+    document.getElementById("result").innerHTML = resultText;
     document.getElementById("result").classList.remove("hidden");
-  }, 3000); // Simulate 3-second processing time
+  }, 3000);
 }
 
 function uploadFile() {
@@ -28,9 +36,16 @@ function uploadFile() {
 
   setTimeout(() => {
     hideLoading();
-    document.getElementById("result").innerHTML = `<strong>Result:</strong> File processed successfully! 📁`;
+    
+    // Simulating File Fact-Checking
+    const isTrue = Math.random() > 0.5;
+    const resultText = isTrue 
+      ? `<strong>Result:</strong> ✅ The contents of the file are likely TRUE.` 
+      : `<strong>Result:</strong> ❌ The contents of the file are likely FALSE.`;
+
+    document.getElementById("result").innerHTML = resultText;
     document.getElementById("result").classList.remove("hidden");
-  }, 3000); // Simulate 3-second processing time
+  }, 3000);
 }
 
 function showLoading() {
