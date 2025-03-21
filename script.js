@@ -1,8 +1,9 @@
 function checkData() {
-  const inputText = document.getElementById("inputText").value;
+  const inputText = document.getElementById("inputText").value.trim();
+  const inputFile = document.getElementById("inputFile").files[0];
 
-  if (!inputText.trim()) {
-    alert("Please enter some text to check.");
+  if (!inputText && !inputFile) {
+    alert("Please enter some text or upload a file to check.");
     return;
   }
 
