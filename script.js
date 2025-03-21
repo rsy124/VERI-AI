@@ -18,19 +18,23 @@ function checkData() {
       ? `<strong>Result:</strong> ✅ This statement is likely TRUE.` 
       : `<strong>Result:</strong> ❌ This statement is likely FALSE.`;
 
-    // Simulated Sources (You can customize these)
+    // Simulated Sources
     const sources = [
       "https://www.snopes.com",
       "https://www.factcheck.org",
       "https://toolbox.google.com/factcheck/explorer"
     ];
     
-    const sourceLinks = sources.map(source => `<li><a href="${source}" target="_blank">${source}</a></li>`).join("");
+    const sourceLinks = sources.map(source => `
+      <li class="source-item">
+        <a href="${source}" target="_blank">${source}</a>
+      </li>
+    `).join("");
 
     document.getElementById("result").innerHTML = `
       ${resultText}<br>
-      <strong>Sources for Verification:</strong>
-      <ul>${sourceLinks}</ul>
+      <strong>Verified Sources:</strong>
+      <ul class="source-list">${sourceLinks}</ul>
     `;
     document.getElementById("result").classList.remove("hidden");
   }, 3000);
