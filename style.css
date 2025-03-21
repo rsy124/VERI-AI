@@ -63,3 +63,24 @@ button:hover {
   margin-top: 20px;
   font-size: 16px;
 }
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.source-item {
+  margin-bottom: 10px;
+}
+
+.source-item a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.source-item a:hover {
+  color: #0056b3;
+}
+
