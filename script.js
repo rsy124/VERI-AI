@@ -8,7 +8,7 @@ function checkData() {
 
   showLoading();
 
-  // Simulating a fact-checking process (3-second wait)
+  // Simulating a fact-checking process
   setTimeout(() => {
     hideLoading();
     
@@ -18,32 +18,20 @@ function checkData() {
       ? `<strong>Result:</strong> ✅ This statement is likely TRUE.` 
       : `<strong>Result:</strong> ❌ This statement is likely FALSE.`;
 
-    document.getElementById("result").innerHTML = resultText;
-    document.getElementById("result").classList.remove("hidden");
-  }, 3000);
-}
-
-function uploadFile() {
-  const fileInput = document.getElementById("fileInput");
-  const file = fileInput.files[0];
-
-  if (!file) {
-    alert("Please upload a file to proceed.");
-    return;
-  }
-
-  showLoading();
-
-  setTimeout(() => {
-    hideLoading();
+    // Simulated Sources (You can customize these)
+    const sources = [
+      "https://www.snopes.com",
+      "https://www.factcheck.org",
+      "https://toolbox.google.com/factcheck/explorer"
+    ];
     
-    // Simulating File Fact-Checking
-    const isTrue = Math.random() > 0.5;
-    const resultText = isTrue 
-      ? `<strong>Result:</strong> ✅ The contents of the file are likely TRUE.` 
-      : `<strong>Result:</strong> ❌ The contents of the file are likely FALSE.`;
+    const sourceLinks = sources.map(source => `<li><a href="${source}" target="_blank">${source}</a></li>`).join("");
 
-    document.getElementById("result").innerHTML = resultText;
+    document.getElementById("result").innerHTML = `
+      ${resultText}<br>
+      <strong>Sources for Verification:</strong>
+      <ul>${sourceLinks}</ul>
+    `;
     document.getElementById("result").classList.remove("hidden");
   }, 3000);
 }
